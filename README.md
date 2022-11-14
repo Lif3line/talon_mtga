@@ -22,6 +22,7 @@ Caveats:
 
 ## Usage
 
+- Consider turning off subtitles as unfortunately they appear over the cards
 - Run MTGA in full-screen
   - Disable alternate card arts
   - Ensure there are no overlays in the way
