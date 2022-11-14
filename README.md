@@ -29,7 +29,7 @@ Caveats:
   - Ensures we don't clash with other commands
 - Use `highlight cards` or `keep highlighting cards` to show overlays and ensure that you're playing the thing you want
   - Highlights will close automatically or in continuous mode stopped with `stop highlighting cards`
-  - Use `select X` to activate a card
+  - Use `select card X` to activate a card
   - Use `play X` to play a card
   - You can skip highlighting first by saying `fast X`
 - Use `done` or `ok` to press any orange button
