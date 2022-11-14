@@ -6,6 +6,7 @@ Caveats:
 
 - Tuned on a 1440p screen, may need tweaking for other resolutions
 - Has some edge cases with unusual card boards
+- Can struggle if you have many cards in hand
 - Still needs other interaction tools for blocks, individual attackers, and some uncommon interactions
 
 ## Setup
@@ -38,3 +39,17 @@ Caveats:
 ## Example Overlay
 
 ![MTGA with Talon Overlay](img/mtga_screenshot_talon.png)
+
+## Notes
+
+Fairly hacky approach to the optical recognition of the cards, but it runs decently fast and works most of the time.
+
+- Aims to run fast (currently <0.1s locally)
+  - Lets numpy/OpenCV do the majority of the heavy lifting
+- Use MTGA's blue/yellow "playable" border to find the rough region
+  - Left-most card has a darkened effect
+  - Use region to strip out everything else
+- Use black border to find individual cards
+  - Will always be delineated by blue borders
+  - Parametrise black border to catch most cases
+  - Pull border coordinates to get a clickable position
