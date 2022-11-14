@@ -1,0 +1,8 @@
+name: talon
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - numpy=1.21.4=py39h6635163_0
+  - py-opencv=4.5.3=py39h832f523_5
+  - pillow=8.4.0=py39h916092e_0
