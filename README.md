@@ -9,6 +9,8 @@ Caveats:
 - Can struggle if you have many cards in hand
 - Still needs other interaction tools for blocks, individual attackers, and some uncommon interactions
 
+Short video of usage: https://youtu.be/hkBFbhc1mvg
+
 ## Setup
 
 - Clone repo to Talon user folder e.g. `C:\Users\<username>\AppData\Roaming\talon`
