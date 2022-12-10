@@ -1,3 +1,4 @@
+"""Generic Talon utility code."""
 from talon import ctrl, Module
 import time
 
@@ -10,6 +11,7 @@ def boomerang_click(
     y: int,
     click_time: int = 16000,  # us
 ):
+    """Click somewhere then return mouse to original location."""
     org_mouse_position = ctrl.mouse_pos()
 
     ctrl.mouse_move(x, y)
@@ -20,13 +22,15 @@ def boomerang_click(
 
 @mod.action_class
 class Actions:
+    """Hook in to Talon Actions module."""
+
     def mouse_click_at(
         click_type: int,
         x: int,
         y: int,
         click_time: int,  # us
     ):
-        """Move-click-move wrapper"""
+        """Move-click-return wrapper."""
         boomerang_click(
             click_type,
             x,
