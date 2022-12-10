@@ -9,27 +9,28 @@ Caveats:
 - Can struggle if you have many cards in hand
 - Still needs other interaction tools for blocks, individual attackers, and some uncommon interactions
 
-Short video of usage: https://youtu.be/hkBFbhc1mvg
+Short video of usage: <https://youtu.be/hkBFbhc1mvg>
 
 ## Setup
 
 - Clone repo to Talon user folder e.g. `C:\Users\<username>\AppData\Roaming\talon`
-- Install [Anaconda 3](https://www.anaconda.com/)
-  - Assume default installation path
-- Create environment from provided yaml `conda env create -f talon_env.yaml`
-  - Assume name `talon`
-  - This is used to load tools without messing with the Talon virtual environment
-    - This step can be substituted to installing the packages in [talon_env.yaml](talon_env.yaml) into your Talon environment
+- Either install dependencies manually or install [Anaconda 3](https://www.anaconda.com/)
+  - **Manually**
+    - Open `C:\Users\<username>\AppData\Roaming\talon\.venv\Scripts` in command prompt
+    - `pip install "numpy>=1.21.4" "opencv-python>=4.5.3" "pillow>=8.4.0"`
+  - **Anaconda 3**
+    - Create environment from provided yaml `conda env create -f talon_env.yaml`
+      - This is allows loading tools without messing with the Talon virtual environment
 - Reload Talon
 
 ## Usage
 
-- Consider turning off subtitles as unfortunately they appear over the cards
+- Consider turning off subtitles as unfortunately they appear over the cards and can't easily be moved
 - Run MTGA in full-screen
   - Disable alternate card arts
   - Ensure there are no overlays in the way
-- Activate the MTGA mode by saying `enable magic mode`
-  - Ensures we don't clash with other commands
+- *Optional* Activate the MTGA mode by saying `enable magic mode`
+  - Reduces clashes with other commands
 - Use `highlight cards` or `keep highlighting cards` to show overlays and ensure that you're playing the thing you want
   - Highlights will close automatically or in continuous mode stopped with `stop highlighting cards`
   - Use `select card X` to activate a card
