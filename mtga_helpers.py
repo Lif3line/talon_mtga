@@ -1,22 +1,32 @@
+"""Helper functions for doing visual analysis on MTGA."""
 import os
 import sys
-import time
 
-# This shim is needed to work in local and Talon space
+
 try:
-    from custom_env import CustomEnv
-except:
-    sys.path.insert(0, os.path.join(os.path.dirname(__file__)))
-    from custom_env import CustomEnv
-
-# Needs to work in and out of Talon
-with CustomEnv():
     import cv2
     import pyautogui
 
     import numpy as np
 
     from PIL import ImageGrab
+
+except ImportError:
+    print("Could not find needed packages in current (Talon?) venv, trying Anaconda environment shim")
+
+    try:  # Needed to work in local and Talon space
+        from custom_env import CustomEnv
+    except:
+        sys.path.insert(0, os.path.join(os.path.dirname(__file__)))
+        from custom_env import CustomEnv
+
+    with CustomEnv():
+        import cv2
+        import pyautogui
+
+        import numpy as np
+
+        from PIL import ImageGrab
 
 
 def mtga_find_button(colour: str = "orange", enlarged: bool = False, screenshot=None, debug=False):
@@ -147,9 +157,7 @@ def mtga_get_card_positions(screenshot=None, debug=False):
         screenshot = np.array(im)
 
     # Grab blue highlighted cards that we can play
-    mask_highlights = cv2.inRange(
-        screenshot, standard_blue_range[0], standard_blue_range[1]
-    )
+    mask_highlights = cv2.inRange(screenshot, standard_blue_range[0], standard_blue_range[1])
     mask_highlights = np.logical_or(
         mask_highlights,
         cv2.inRange(screenshot, foretell_blue_range[0], foretell_blue_range[1]),
@@ -164,9 +172,7 @@ def mtga_get_card_positions(screenshot=None, debug=False):
     )
 
     for cur_colour in specific_colours:
-        mask_highlights = np.logical_or(
-            mask_highlights, cv2.inRange(screenshot, cur_colour, cur_colour)
-        )
+        mask_highlights = np.logical_or(mask_highlights, cv2.inRange(screenshot, cur_colour, cur_colour))
 
     # Fill down below highlighted regions as long they are at least a certain length, otherwise mask out
     mask_highlights[0, :] = False  # Ensure == 0 means no white in column
@@ -181,9 +187,7 @@ def mtga_get_card_positions(screenshot=None, debug=False):
     screenshot[~mask_highlights] = np.array([255, 255, 255])
 
     # Find black borders of cards
-    mask_black = cv2.inRange(
-        screenshot, np.array([gray_range[0]] * 3), np.array([gray_range[1]] * 3)
-    )
+    mask_black = cv2.inRange(screenshot, np.array([gray_range[0]] * 3), np.array([gray_range[1]] * 3))
 
     max_colour_val = np.max(screenshot, axis=2)
     min_colour_val = np.min(screenshot, axis=2)
