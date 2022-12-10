@@ -1,13 +1,14 @@
 # MTGA Talon
 
-Talon integration for Magic: The Gathering Arena (MTGA). Uses screen-based recognition to play cards and press buttons. Still requires some manual input for cards with targets and selecting blockers/attackers, but gets 80% of the way.
+Talon integration for Magic: The Gathering Arena (MTGA). Uses screen-based recognition to play cards and press buttons. Still requires some manual input for cards with targets and selecting blockers/attackers, but gets a good chunk of the way.
 
 Caveats:
 
 - Tuned on a 1440p screen, may need tweaking for other resolutions
-- Has some edge cases with unusual card boards
+- Has some edge cases with unusual card borders
 - Can struggle if you have many cards in hand
-- Still needs other interaction tools for blocks, individual attackers, and some uncommon interactions
+- Still needs other interaction tools for blocks, individual attackers, and generally uncommon interactions
+  - Pairs nicely with an eye-tracker for this
 
 Short video of usage: <https://youtu.be/hkBFbhc1mvg>
 
@@ -20,7 +21,7 @@ Short video of usage: <https://youtu.be/hkBFbhc1mvg>
     - `pip install "numpy>=1.21.4" "opencv-python>=4.5.3" "pillow>=8.4.0"`
   - **Anaconda 3**
     - Create environment from provided yaml `conda env create -f talon_env.yaml`
-      - This is allows loading tools without messing with the Talon virtual environment
+      - This is allows side-loading tools without messing with the Talon virtual environment
 - Reload Talon
 
 ## Usage
