@@ -18,7 +18,7 @@ Short video of usage: <https://youtu.be/hkBFbhc1mvg>
 - Either install dependencies manually or install [Anaconda 3](https://www.anaconda.com/)
   - **Manually**
     - Open `C:\Users\<username>\AppData\Roaming\talon\.venv\Scripts` in command prompt
-    - `pip install "numpy>=1.21.4" "opencv-python>=4.5.3" "pillow>=8.4.0"`
+    - `pip install "numpy>=1.21.4" "opencv-contrib-python==4.5.5.62" "opencv-python-headless==4.5.5.62" "pillow>=8.4.0" pyautogui`
   - **Anaconda 3**
     - Create environment from provided yaml `conda env create -f talon_env.yaml`
       - This is allows side-loading tools without messing with the Talon virtual environment
