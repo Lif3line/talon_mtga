@@ -30,8 +30,7 @@ Short video of usage: <https://youtu.be/hkBFbhc1mvg>
 - Run MTGA in full-screen
   - Disable alternate card arts
   - Ensure there are no overlays in the way
-- *Optional* Activate the MTGA mode by saying `enable magic mode`
-  - Reduces clashes with other commands
+- A special magic mode will be enable when selecting MTGA which disables other commands to improve detection
 - Use `highlight cards` or `keep highlighting cards` to show overlays and ensure that you're playing the thing you want
   - Highlights will close automatically or in continuous mode stopped with `stop highlighting cards`
   - Use `select card X` to activate a card
